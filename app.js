@@ -15,8 +15,9 @@ async function main() {
         customProvider,
         {apiKey: "kAsdpiRAy.c9d8b991-99cf-499b-9af5-546f4d01a8fd", debug: true, contractAddresses: [contractAddr]}
     );
+    await biconomyWithWeb3.init();
     const web3 = new Web3(biconomyWithWeb3);
-    
+
     let contract = new web3.eth.Contract(contractAbi, contractAddr);
     let userAddress = process.env.ACCOUNT_ADDRESS;
     let privateKey = privkey;
