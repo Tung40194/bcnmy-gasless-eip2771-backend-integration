@@ -33,9 +33,7 @@ async function main() {
         "data": contract.methods.setQuote(newQuote).encodeABI(), 
     };
 
-    console.log(">>>mark1")
     const signedTx = await web3.eth.accounts.signTransaction(txParams, `0x${privateKey}`);
-    console.log(">>>mark2")
     const forwardData = await biconomy.getForwardRequestAndMessageToSign(signedTx.rawTransaction);
 
     // const signature = sigUtil.personalSign(new Buffer.from(privateKey, 'hex'), { data: forwardData.personalSignatureFormat });
